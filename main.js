@@ -14,20 +14,13 @@ function trainersChangeBoxColor() {
         trainerRectangelFoor.classList.remove("redOne")
         if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width*0.75) {
             trainerRectangelOne.classList.add("redOne")
-            console.log(trainerBox.getBoundingClientRect().width*0.75)
-            console.log(trainersScroll.scrollLeft)
         } else if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width*1.5) {
             trainerRectangelTwo.classList.add("redOne")
-            console.log(trainerBox.getBoundingClientRect().width*1.5)
-            console.log(trainersScroll.scrollLeft)
         } else if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width * 2.25) {
             trainerRectangelThree.classList.add("redOne")
-            console.log(trainerBox.getBoundingClientRect().width * 2.25)
-            console.log(trainersScroll.scrollLeft)
         } else if (trainersScroll.scrollLeft > trainerBox.getBoundingClientRect().width * 2.25) {
             trainerRectangelFoor.classList.add("redOne")
         }
-        console.log(trainersScroll.scrollLeft)
     }, 400);
 }
 trainersScroll.addEventListener("wheel", () => {
@@ -63,7 +56,6 @@ function testemonyChangeBoxColor() {
         } else if (testemonyScroll.scrollLeft > screen.width*1.25) {
             testemonyRectangelThree.classList.add("redOne")
         }
-        console.log(testemonyScroll.scrollLeft)
     }, 400);
 }
 
@@ -103,7 +95,6 @@ testemonyLeftBtn.addEventListener("click", () => {
     }
     testemonyScroll.style.scrollBehavior = "smooth"
     testemonyScroll.scrollLeft -= screen.width
-    console.log(testemonyScroll.scrollLeft)
     if (testemonyRectangelNum > 1) {
         testemonyRectangelNum -= 1
     }
@@ -119,7 +110,6 @@ testemonyRightBtn.addEventListener("click", () => {
     }
     testemonyScroll.style.scrollBehavior = "smooth"
     testemonyScroll.scrollLeft += screen.width
-    console.log(testemonyScroll.scrollLeft)
     if (testemonyRectangelNum < 3) {
         testemonyRectangelNum += 1
     }
