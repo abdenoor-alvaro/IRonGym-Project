@@ -670,7 +670,7 @@ body {
 .testimonial {
     position: relative;
     padding-block: 80px;
-    background-image: url(images/testemonial-page.png);
+    background-image: url(images/testemonial-page.jpg);
     background-size: cover;
     background-position: center;
     z-index: -2;
