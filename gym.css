@@ -602,14 +602,6 @@ body ::-webkit-scrollbar-thumb {
     font-family: 'Poppins' , sans-serif;
     padding-block: 5px;
 }
-.trainers .rectangels {
-    display: none;
-    width: fit-content;
-    margin: auto;
-}
-.trainers .rectangels img {
-    margin-left: 3px;
-}
 @media (max-width:1200px) {
     body ::-webkit-scrollbar-track {
         margin-inline: 300px;
@@ -622,8 +614,8 @@ body ::-webkit-scrollbar-thumb {
     body ::-webkit-scrollbar {
         height: 0;
     }
-    .trainers .rectangels {
-        display: block;
+    .trainers .trainersScroll .rectangels {
+        display: flex;
     }
     .trainers .content .box {
         width: 300px;
@@ -634,6 +626,9 @@ body ::-webkit-scrollbar-thumb {
     }
     .trainers .content .box .info {
         padding: 10px;
+    }
+    .trainers .rectangels {
+        display: flex;
     }
 }
 @media (max-width:768px) {
@@ -707,6 +702,7 @@ body {
     transform: translateY(50%);
     z-index: 1;
     width: fit-content;
+    cursor: pointer;
 }
 .testimonial a:first-of-type {
     left: 80;
@@ -732,13 +728,20 @@ body {
     font-weight: normal;
     margin: 20 0 20;
 }
-.testimonial .rectangels {
+.rectangels {
     width: fit-content;
     margin: auto ;
     display: none;
 }
-.testimonial .rectangels img {
+.rectangels .rectangel {
     margin-left: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #484848;
+    transition: .3s;
+}
+.rectangels .redOne {
+    background-color: red;
 }
 @media (max-width:1200px) {
     .testimonial .testimony p {
@@ -756,7 +759,7 @@ body {
         left: 60;
     }
     .testimonial .rectangels {
-        display: block;
+        display: flex;
     }
 }
 @media (max-width:768px) {
