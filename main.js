@@ -6,30 +6,35 @@ let trainerRectangelTwo = document.querySelector(".trainerTwo")
 let trainerRectangelThree = document.querySelector(".trainerThree")
 let trainerRectangelFoor = document.querySelector(".trainerFoor")
 let trainerScrollLeftValue = trainersScroll.scrollLeft 
-function changeBoxColor() {
+function trainersChangeBoxColor() {
     setTimeout(() => {
         trainerRectangelOne.classList.remove("redOne")
         trainerRectangelTwo.classList.remove("redOne")
         trainerRectangelThree.classList.remove("redOne")
         trainerRectangelFoor.classList.remove("redOne")
-        if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width) {
+        if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width*0.75) {
             trainerRectangelOne.classList.add("redOne")
-        } else if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width*2) {
+            console.log(trainerBox.getBoundingClientRect().width*0.75)
+            console.log(trainersScroll.scrollLeft)
+        } else if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width*1.5) {
             trainerRectangelTwo.classList.add("redOne")
-        } else if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width*3) {
+            console.log(trainerBox.getBoundingClientRect().width*1.5)
+            console.log(trainersScroll.scrollLeft)
+        } else if (trainersScroll.scrollLeft < trainerBox.getBoundingClientRect().width * 2.25) {
             trainerRectangelThree.classList.add("redOne")
-        } else if (trainersScroll.scrollLeft < trainersScroll.scrollWidth - trainerBox.getBoundingClientRect().width) {
+            console.log(trainerBox.getBoundingClientRect().width * 2.25)
+            console.log(trainersScroll.scrollLeft)
+        } else if (trainersScroll.scrollLeft > trainerBox.getBoundingClientRect().width * 2.25) {
             trainerRectangelFoor.classList.add("redOne")
         }
+        console.log(trainersScroll.scrollLeft)
     }, 400);
 }
 trainersScroll.addEventListener("wheel", () => {
-    changeBoxColor()
+    trainersChangeBoxColor()
 })
-
-
 trainersScroll.addEventListener("touchmove", () => {
-    changeBoxColor()
+    trainersChangeBoxColor()
 })
 
 
@@ -45,7 +50,33 @@ let testemonyRightBtn = document.querySelector(".testemonyRightScroll")
 let testemonyRectangelOne = document.querySelector(".testemonyOne")
 let testemonyRectangelTwo = document.querySelector(".testemonyTwo")
 let testemonyRectangelThree = document.querySelector(".testemonyThree")
-let testemonyRectangelNum = 1
+let testemonyRectangelNum 
+function testemonyChangeBoxColor() {
+    setTimeout(() => {
+        testemonyRectangelOne.classList.remove("redOne")
+        testemonyRectangelTwo.classList.remove("redOne")
+        testemonyRectangelThree.classList.remove("redOne")
+        if (testemonyScroll.scrollLeft < screen.width*0.5) {
+            testemonyRectangelOne.classList.add("redOne")
+        } else if (testemonyScroll.scrollLeft < screen.width*1.25) {
+            testemonyRectangelTwo.classList.add("redOne")
+        } else if (testemonyScroll.scrollLeft > screen.width*1.25) {
+            testemonyRectangelThree.classList.add("redOne")
+        }
+        console.log(testemonyScroll.scrollLeft)
+    }, 400);
+}
+
+
+
+testemonyScroll.addEventListener("wheel", () => {
+    testemonyChangeBoxColor()
+})
+testemonyScroll.addEventListener("touchmove", () => {
+    testemonyChangeBoxColor()
+})
+
+
 function rectangleColor(testemonyRectangelNum) {
     testemonyRectangelOne.classList.remove("redOne")
     testemonyRectangelTwo.classList.remove("redOne")
@@ -63,6 +94,13 @@ function rectangleColor(testemonyRectangelNum) {
     }
 }
 testemonyLeftBtn.addEventListener("click", () => {
+    if (testemonyRectangelOne.classList.contains("redOne")) {
+        testemonyRectangelNum = 1
+    } else if (testemonyRectangelTwo.classList.contains("redOne")) {
+        testemonyRectangelNum = 2
+    } else {
+        testemonyRectangelNum = 3
+    }
     testemonyScroll.style.scrollBehavior = "smooth"
     testemonyScroll.scrollLeft -= screen.width
     console.log(testemonyScroll.scrollLeft)
@@ -72,6 +110,13 @@ testemonyLeftBtn.addEventListener("click", () => {
     rectangleColor(testemonyRectangelNum)
 })
 testemonyRightBtn.addEventListener("click", () => {
+    if (testemonyRectangelOne.classList.contains("redOne")) {
+        testemonyRectangelNum = 1
+    } else if (testemonyRectangelTwo.classList.contains("redOne")) {
+        testemonyRectangelNum = 2
+    } else {
+        testemonyRectangelNum = 3
+    }
     testemonyScroll.style.scrollBehavior = "smooth"
     testemonyScroll.scrollLeft += screen.width
     console.log(testemonyScroll.scrollLeft)
