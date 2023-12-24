@@ -6,12 +6,8 @@ let trainerRectangelTwo = document.querySelector(".trainerTwo")
 let trainerRectangelThree = document.querySelector(".trainerThree")
 let trainerRectangelFoor = document.querySelector(".trainerFoor")
 let trainerScrollLeftValue = trainersScroll.scrollLeft 
-trainersScroll.addEventListener("wheel", () => {
+function changeBoxColor() {
     setTimeout(() => {
-        // console.log(trainersScroll.scrollWidth)
-        // console.log(trainersScroll.scrollLeft)
-        // console.log(screen.width)
-        // console.log(trainerBox.getBoundingClientRect().width
         trainerRectangelOne.classList.remove("redOne")
         trainerRectangelTwo.classList.remove("redOne")
         trainerRectangelThree.classList.remove("redOne")
@@ -26,7 +22,20 @@ trainersScroll.addEventListener("wheel", () => {
             trainerRectangelFoor.classList.add("redOne")
         }
     }, 400);
+}
+trainersScroll.addEventListener("wheel", () => {
+    changeBoxColor()
 })
+
+
+trainersScroll.addEventListener("touchmove", () => {
+    changeBoxColor()
+})
+
+
+
+
+
 
 
 // Start Testemony Scroll
